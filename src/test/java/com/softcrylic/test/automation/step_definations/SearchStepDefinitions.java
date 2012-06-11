@@ -23,27 +23,39 @@ public class SearchStepDefinitions {
 
     @Before
     public void prepare() throws MalformedURLException {
-    	System.out.println("Count is:  @prepare" + ++count);
+    	
     	String url = "";
+    	//DesiredCapabilities capabillities = DesiredCapabilities.chrome(); 
+    	DesiredCapabilities capabillities = DesiredCapabilities.firefox();
+    	capabillities.setCapability("version", "11");
+    	
+    	// run in mac machine gird
     	url = "http://localhost:4444/wd/hub";
+    	capabillities.setCapability("platform", Platform.MAC);
+    
+    	
+    	//run in sauce labs grid
+    	//String url = "http://mayur_softcrylic:1034911c-db71-4c8e-8e12-7831abf6adf7@ondemand.saucelabs.com:80/wd/hub";
+    	//capabillities.setCapability("platform", Platform.MAC);
+    	//capabillities.setCapability("name", "Running via Jenkins. Testing on Sauce");
+    	//capabillities.setCapability("record-video", false);
+    	
+    	System.out.println("Count is:  @prepare" + ++count);
     	System.out.println("Running at: "+url);
-    	 DesiredCapabilities capabillities = DesiredCapabilities.chrome(); 
-    	 //if(url.contains("saucelabs")) 
+    	 
+    	
+    	
+    	
+    	//if(url.contains("saucelabs")) 
         // capabillities.setCapability("version", "11");
     	// else
-    		// capabillities.setCapability("version", "12.0");
-         capabillities.setCapability("platform", Platform.XP);
-         capabillities.setCapability("name", "Running via Jenkins. Testing on Sauce");
-         capabillities.setCapability("record-video", false);
-
+    	// capabillities.setCapability("version", "12.0");
+    	
          this.driver = new RemoteWebDriver(
         		 new URL(url),
             capabillities);
          driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    	//DesiredCapabilities cap = DesiredCapabilities.firefox();
-    	//cap.setCapability("version", "12.0");
-    	//System.out.println("Changes reverted!");
-        //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
+    	
     }
 
     @After
