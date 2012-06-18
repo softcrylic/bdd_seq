@@ -1,67 +1,75 @@
 package com.softcrylic.test.automation.pages;
 
+import junit.framework.Assert;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.internal.Locatable;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class smHomePage {
-    private WebDriver driver; 
 
-    public smHomePage(WebDriver driver) {
+public class HomePage {
+	private WebDriver driver;
+	
+	public HomePage(WebDriver driver) {
         this.driver = driver;
-        String baseUrl = "http://www.barnesandnoble.com";
-        driver.get(baseUrl + "/");
+		this.driver.get(HomePage.getURL());
+		Assert.assertTrue(HomePage.getRedirectToURL().contains(driver.getCurrentUrl()));
+        
     }
-
-    public smSearchResultPage BNsearchFor(String search_keyword) {
-        try {
-            WebElement searchField = driver.findElement(By.id("search-input"));
-            searchField.clear();
-            searchField.sendKeys(search_keyword);
-            searchField.submit();
+	
+	//properties 
+	public static String getURL(){
+		return "http://www.bn.com";
+	}
+	public static String getRedirectToURL(){
+		return "http://www.barnesandnoble.com/";
+	}
+	public static WebElement getSearchBox(WebDriver driver){
+		return driver.findElement(By.id("search-input"));
+	}
+	public static WebElement getSearchButton(WebDriver driver){
+		return driver.findElement(By.id("quick-search-button"));
+	}
+	public static WebElement getTopNavMenu(WebDriver driver){
+		return driver.findElement(By.id("bn-nav-global"));
+	}
+	
+	//ACTIONS
+	public SearchResultPage Search(String search_keyword) {
+        try {	        	
+        	HomePage.getSearchBox(driver).clear();
+			HomePage.getSearchBox(driver).sendKeys(search_keyword);
+			HomePage.getSearchButton(driver).click();
+			Assert.assertTrue(driver.getTitle().toLowerCase().contains(search_keyword.toLowerCase()));
         } catch (RuntimeException e) {
             takeScreenShot(e, "searchError");
         }
-
-        return new smSearchResultPage(driver);
+		return new SearchResultPage(driver);
     }
-    
-    public void BNselectDepartment(String department_input) throws InterruptedException {
+	
+	public DepartmentPage SelectADepartment(String department_input) throws InterruptedException {
         try {
-            WebElement selectMenu = driver.findElement(By.id("bn-nav-global"));
-        	List<WebElement> li_options = selectMenu.findElements(By.tagName("li"));
-			for (WebElement li : li_options) {
+        	List<WebElement> topNavMenuItems = HomePage.getTopNavMenu(driver).findElements(By.tagName("li"));
+			for (WebElement li : topNavMenuItems) {
 				if (li.getText().equals(department_input)) {
 					WebElement anchor = li.findElement(By.tagName("a"));
 					anchor.click();	
 				    break;
 			    } 
 			}
-            
         } catch (RuntimeException e) {
+        	System.out.println("Department doesn't exsist");
             takeScreenShot(e, "searchError");
         }
+        return new DepartmentPage(driver);
     }
-
-        
-    public void Click_Go_button() {
-    	
-    	try {
-    		
-    		WebElement SearchGoButton = driver.findElement(By.id("quick-search-button"));
-    		SearchGoButton.click();
-           
-        } catch (RuntimeException e) {
-            takeScreenShot(e, "ClickGoButtonError");
-        }
-
-    }
-
-    private void takeScreenShot(RuntimeException e, String fileName) {
+	
+	private void takeScreenShot(RuntimeException e, String fileName) {
         File screenShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(screenShot, new File(fileName + ".png"));
@@ -70,4 +78,5 @@ public class smHomePage {
         }
         throw e;
     }
+	
 }

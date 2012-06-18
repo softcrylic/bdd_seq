@@ -13,15 +13,16 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import com.softcrylic.test.automation.pages.*;
 
 public class SearchStepDefinitions {
+	
     private WebDriver driver;
-    private smHomePage sm_home;
-    private smSearchResultPage sm_searchResult;
+    private HomePage hp;
     private String entered_search_keyword;
+    private SearchResultPage searchResultPage;
+    private DepartmentPage	departmentPage;
     
 
     @Before
@@ -45,14 +46,11 @@ public class SearchStepDefinitions {
     	//if(url.contains("saucelabs")) 
         // capabillities.setCapability("version", "11");
     	// else
-    	// capabillities.setCapability("version", "12.0");
-    	
-    	
+    	// capabillities.setCapability("version", "12.0");	
     }
 
     @After
     public void cleanUp() {
-    	System.out.println("Count is: @cleanUp " + ++count);
         driver.close();
         try{
         	if(driver!=null) driver.quit();
@@ -60,38 +58,26 @@ public class SearchStepDefinitions {
     }
 
     
-    // search feature
+    // basic search feature
     @Given("^User is on home page$")
-    public void prepareHomePage1() {
-    	System.out.println("Count is: @prepareHomePage " + ++count);
-        sm_home = new smHomePage(driver);
+    public void prepareHomePage() {
+       hp = new HomePage(driver);
     }
 
-    @When("^Enter \"([^\"]*)\" in search box field$")
+    @When("^Enter \"([^\"]*)\" in search box field and Search$")
     public void search1(String search_keyword) {
     	entered_search_keyword = search_keyword;
-    	System.out.println("Count is: @search " + ++count);
-        sm_searchResult = sm_home.BNsearchFor(entered_search_keyword);
+    	searchResultPage = hp.Search(search_keyword);
     }
     
-    @When("^Click Go button$")
-    public void Click_Go_button(){
-    	// home page class has the implementation of Search Go Button
-    }
-
     @Then("^Page loads with results for search keyword$")
     public void assertTheSearchResult1() throws Throwable {
-    	System.out.println("Count is: @assertTheSearchResult " + ++count);
-    	boolean contains_keyword = sm_searchResult.SearchResults().contains(entered_search_keyword);
-    	junit.framework.Assert.assertTrue(contains_keyword);
-    	//assertEquals(search_keyword_result,searchResult.InterpretationCheck());
+    	driver = searchResultPage.ValidateSearchResults(driver, entered_search_keyword);
     }
     
     @Given("^Select a \"([^\"]*)\" to search$")
     public void Department_Selection(String department) throws Throwable {
-    	System.out.println("Count is: select_searchdepartment " + ++count);
-    	sm_home.BNselectDepartment(department);
+    	departmentPage = hp.SelectADepartment(department);
     }
     
-    private static int count =0;
 }
