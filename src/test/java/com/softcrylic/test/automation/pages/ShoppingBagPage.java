@@ -16,7 +16,7 @@ public class ShoppingBagPage {
 	public ShoppingBagPage(WebDriver driver) {
 		try {
 			this.driver = driver;
-			if (driver.getCurrentUrl().toLowerCase().contains("http://cart4.barnesandnoble.com")){
+			if (driver.getCurrentUrl().toLowerCase().contains("http://cart4.barnesandnoble.com") ){
 				isShoppingBagPage = true;
 			}
         } catch (RuntimeException e) {

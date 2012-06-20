@@ -14,6 +14,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import java.util.HashMap;
 
 import com.softcrylic.test.automation.pages.*;
 
@@ -25,10 +26,8 @@ public class CheckoutStepDefinitions {
     private DepartmentPage departmentPage;
     private ShoppingBagPage shoppingbagPage;
     private SignInPage signinPage;
-    private final DataTable dataTable = new DataTable();
-    private StringBuilder printedList;
+    private CheckoutPage checkoutPage;
     private MyHashMap myMap = new MyHashMap();
-    private String keyValue;
     
     @Before
     public void prepare() throws MalformedURLException {
@@ -71,33 +70,64 @@ public class CheckoutStepDefinitions {
 
     @Then("^Sign in page should load$")
     public void userInSignInPage() throws Throwable {
-    	signinPage.isShoppingBagPage();
+    	signinPage.isSignInPage();
     }
     
     @When("^User entered$")
     public void User_entered(List<DataItem> items) throws Throwable {
     	for (DataItem item : items) {
-    		//dataTable.addItem(item.username, item.password);
     		myMap.addItem(item.key, item.value);
         }
     }
     
     @When("^Click on SignIn button$")
     public void SignIn() throws Throwable {
-    	//printedList = new StringBuilder();
-    	//dataTable.print(printedList);
-    	keyValue = myMap.getValue("username");
+    	checkoutPage = signinPage.SignIn(myMap.getValue("username"),myMap.getValue("password"));
     }
 
-    @Then("^Shipping Address page should be displayed$")
-    public void Shipping_Address_page_should_be_displayed() throws Throwable {
-    	//System.out.println(printedList.toString());
+    @Then("^Checkout page should be displayed$")
+    public void userInCheckoutPage() throws Throwable {
+    	checkoutPage.isCheckoutPage();
     }
     
+    @Given("^User entered mandatory Shipping Details$")
+    public void User_entered_mandatory_Shipping_Details(List<DataItem> items) throws Throwable {
+    	for (DataItem item : items) {
+    		myMap.addItem(item.key, item.value);
+        }
+    	checkoutPage.EditShippingAddress(myMap);
+    }
     
     public static class DataItem {
         private String key;
         private String value;
     }
-
+    
+    // Guest checkout definitions
+    @When("^User entered email \"([^\"]*)\"$")
+    public void User_entered_email(String email) throws Throwable {
+    	signinPage.EnterEmail(email);
+    }
+    
+    @When("^Click Begin Checkout$")
+    public void Click_Begin_Checkout() throws Throwable {
+    	checkoutPage = signinPage.clickBeginGuestCheckout();
+    }
+    
+	@Given("^Select Pay By Phone and Use my shipping address as my billing address options$")
+    public void payByPhone() throws Throwable {
+	   	checkoutPage.continueCheckout();
+		checkoutPage.payByPhoneAndBilling();
+    }
+	
+	@Given("^Continue checkout without entering an account$")
+	public void Continue_checkout_without_entering_an_account() throws Throwable {
+		checkoutPage.continueWithoutAccount();
+	}
+    
+	@Then("^Check limited changes options should load$")
+	public void Check_limited_changes_options_should_load() throws Throwable {
+		checkoutPage.checkLimitedChangesOptions();
+	}
+    
 }

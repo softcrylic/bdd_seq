@@ -59,18 +59,18 @@ public class SearchStepDefinitions {
 
     
     // basic search feature
-    @Given("^User is on home page$")
+    @Given("^User is in home page$")
     public void prepareHomePage() {
        hp = new HomePage(driver);
     }
 
-    @When("^Enter \"([^\"]*)\" in search box field and Search$")
+    @When("^Enter \"([^\"]*)\" in search field$")
     public void search1(String search_keyword) {
     	entered_search_keyword = search_keyword;
     	searchResultPage = hp.Search(search_keyword);
     }
     
-    @Then("^Page loads with results for search keyword$")
+    @Then("^Search results for entered keyword is displayed$")
     public void assertTheSearchResult1() throws Throwable {
     	driver = searchResultPage.ValidateSearchResults(driver, entered_search_keyword);
     }
@@ -78,6 +78,11 @@ public class SearchStepDefinitions {
     @Given("^Select a \"([^\"]*)\" to search$")
     public void Department_Selection(String department) throws Throwable {
     	departmentPage = hp.SelectADepartment(department);
+    }
+    
+    @When("^Click Search$")
+    public void Click_Go_button() throws Throwable {
+      //implementation is in hp.Search(search_keyword);
     }
     
 }

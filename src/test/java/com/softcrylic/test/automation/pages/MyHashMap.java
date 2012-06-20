@@ -15,7 +15,6 @@ public class MyHashMap {
     }
 	
 	public String getValue(String key){
-	
 		Iterator iter = mMap.entrySet().iterator();
 		while (iter.hasNext()) {
 			Map.Entry mEntry = (Map.Entry) iter.next();
@@ -23,7 +22,7 @@ public class MyHashMap {
 				keyValue = mMap.get(key).toString();
 				break;
 			}
-			System.out.println(mEntry.getKey() + " : " + mEntry.getValue());
+			//System.out.println(mEntry.getKey() + " : " + mEntry.getValue());
 		}
 		return keyValue;
 	}
