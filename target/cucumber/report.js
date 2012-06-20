@@ -1,243 +1,465 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri('com/softcrylic/test/automation/search.feature');
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri('/Users/sundarsritharan/git/bdd_seq/src/test/resources/com/softcrylic/test/automation/checkout.feature');
 formatter.feature({
-  "id": "search",
-  "description": "",
-  "name": "Search",
+  "id": "checkout",
+  "tags": [
+    {
+      "name": "@checkout",
+      "line": 1
+    }
+  ],
+  "description": "In order to Place Orders\nAs Guest and Registered User\nI want Checkout Feature",
+  "name": "Checkout",
   "keyword": "Feature",
-  "line": 1
+  "line": 2
 });
-formatter.scenario({
-  "id": "search;basic-search",
+formatter.background({
   "description": "",
-  "name": "Basic Search",
-  "keyword": "Scenario",
-  "line": 3,
-  "type": "scenario"
+  "name": "",
+  "keyword": "Background",
+  "line": 7,
+  "type": "background"
 });
 formatter.step({
-  "name": "User is on home page",
+  "name": "User added products to shopping bag",
   "keyword": "Given ",
-  "line": 5
-});
-formatter.step({
-  "name": "Enter \"Acceptance Testing\" in search box field",
-  "keyword": "When ",
-  "line": 6
-});
-formatter.step({
-  "name": "Click Go button",
-  "keyword": "And ",
-  "line": 7
-});
-formatter.step({
-  "name": "Page loads with results for search keyword",
-  "keyword": "Then ",
   "line": 8
 });
+formatter.step({
+  "name": "User is in shopping bag page",
+  "keyword": "And ",
+  "line": 9
+});
+formatter.step({
+  "name": "User click continue checkout button",
+  "keyword": "When ",
+  "line": 10
+});
+formatter.step({
+  "name": "Sign in page should load",
+  "keyword": "Then ",
+  "line": 11
+});
 formatter.match({
-  "location": "SearchStepDefinitions.prepareHomePage1()"
+  "location": "CheckoutStepDefinitions.addProductsToShoppingBag()"
 });
 formatter.result({
-  "duration": 5139680000,
+  "duration": 42385385000,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "Acceptance Testing",
-      "offset": 7
-    }
-  ],
-  "location": "SearchStepDefinitions.search1(String)"
-});
-formatter.result({
-  "duration": 5697096000,
-  "status": "passed"
-});
-formatter.match({
-  "location": "SearchStepDefinitions.Click_Go_button()"
+  "location": "CheckoutStepDefinitions.userInShoppingBag()"
 });
 formatter.result({
   "duration": 31000,
   "status": "passed"
 });
 formatter.match({
-  "location": "SearchStepDefinitions.assertTheSearchResult1()"
+  "location": "CheckoutStepDefinitions.continueToCheckout()"
 });
 formatter.result({
-  "duration": 199014000,
+  "duration": 3838892000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.userInSignInPage()"
+});
+formatter.result({
+  "duration": 58000,
   "status": "passed"
 });
 formatter.scenario({
-  "id": "search;department-search;;2",
+  "id": "checkout;checkout-as-guest-user",
   "description": "",
-  "name": "Department Search",
-  "keyword": "Scenario Outline",
-  "line": 20,
+  "name": "Checkout as Guest User",
+  "keyword": "Scenario",
+  "line": 13,
   "type": "scenario"
 });
 formatter.step({
-  "name": "User is on home page",
-  "keyword": "Given ",
-  "line": 12
-});
-formatter.step({
-  "name": "Select a \"Books\" to search",
-  "keyword": "And ",
-  "line": 13,
-  "matchedColumns": [
-    0
-  ]
-});
-formatter.step({
-  "name": "Enter \"Agile\" in search box field",
+  "name": "User entered email \"ssta123@gmail.com\"",
   "keyword": "When ",
-  "line": 14,
-  "matchedColumns": [
-    1
-  ]
-});
-formatter.step({
-  "name": "Click Go button",
-  "keyword": "And ",
   "line": 15
 });
 formatter.step({
-  "name": "Page loads with results for search keyword",
-  "keyword": "Then ",
+  "name": "Click Begin Checkout",
+  "keyword": "And ",
   "line": 16
 });
-formatter.match({
-  "location": "SearchStepDefinitions.prepareHomePage1()"
+formatter.step({
+  "name": "Checkout page should be displayed",
+  "keyword": "Then ",
+  "line": 17
 });
-formatter.result({
-  "duration": 4938338000,
-  "status": "passed"
+formatter.step({
+  "name": "User entered mandatory Shipping Details",
+  "keyword": "Given ",
+  "line": 18,
+  "rows": [
+    {
+      "cells": [
+        "Key",
+        "value"
+      ],
+      "line": 19
+    },
+    {
+      "cells": [
+        "userflag",
+        "Guest"
+      ],
+      "line": 20
+    },
+    {
+      "cells": [
+        "firstname",
+        "Xavier"
+      ],
+      "line": 21
+    },
+    {
+      "cells": [
+        "lastname",
+        "Zion"
+      ],
+      "line": 22
+    },
+    {
+      "cells": [
+        "address",
+        "600 Alexander Rd Ste 9"
+      ],
+      "line": 23
+    },
+    {
+      "cells": [
+        "city",
+        "Princeton"
+      ],
+      "line": 24
+    },
+    {
+      "cells": [
+        "state",
+        "New Jersey"
+      ],
+      "line": 25
+    },
+    {
+      "cells": [
+        "zip",
+        "08540"
+      ],
+      "line": 26
+    },
+    {
+      "cells": [
+        "country",
+        "United States"
+      ],
+      "line": 27
+    },
+    {
+      "cells": [
+        "phonenumber",
+        "(609) 662 4040"
+      ],
+      "line": 28
+    },
+    {
+      "cells": [
+        "email",
+        "ssta123@gmail.com"
+      ],
+      "line": 29
+    }
+  ]
+});
+formatter.step({
+  "name": "Select Pay By Phone and Use my shipping address as my billing address options",
+  "keyword": "And ",
+  "line": 30
+});
+formatter.step({
+  "name": "Continue checkout without entering an account",
+  "keyword": "And ",
+  "line": 31
+});
+formatter.step({
+  "name": "Check limited changes options should load",
+  "keyword": "Then ",
+  "line": 32
 });
 formatter.match({
   "arguments": [
     {
-      "val": "Books",
-      "offset": 10
+      "val": "ssta123@gmail.com",
+      "offset": 20
     }
   ],
-  "location": "SearchStepDefinitions.Department_Selection(String)"
+  "location": "CheckoutStepDefinitions.User_entered_email(String)"
 });
 formatter.result({
-  "duration": 619801000,
+  "duration": 227061000,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "Agile",
-      "offset": 7
-    }
-  ],
-  "location": "SearchStepDefinitions.search1(String)"
+  "location": "CheckoutStepDefinitions.Click_Begin_Checkout()"
 });
 formatter.result({
-  "duration": 13930101000,
+  "duration": 3844336000,
   "status": "passed"
 });
 formatter.match({
-  "location": "SearchStepDefinitions.Click_Go_button()"
+  "location": "CheckoutStepDefinitions.userInCheckoutPage()"
 });
 formatter.result({
-  "duration": 31000,
+  "duration": 35000,
   "status": "passed"
 });
 formatter.match({
-  "location": "SearchStepDefinitions.assertTheSearchResult1()"
+  "location": "CheckoutStepDefinitions.User_entered_mandatory_Shipping_Details(CheckoutStepDefinitions$DataItem\u003e)"
 });
 formatter.result({
-  "duration": 64457000,
+  "duration": 4610089000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.payByPhone()"
+});
+formatter.result({
+  "duration": 7104341000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.Continue_checkout_without_entering_an_account()"
+});
+formatter.result({
+  "duration": 3275397000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.Check_limited_changes_options_should_load()"
+});
+formatter.result({
+  "duration": 2835353000,
+  "status": "passed"
+});
+formatter.background({
+  "description": "",
+  "name": "",
+  "keyword": "Background",
+  "line": 7,
+  "type": "background"
+});
+formatter.step({
+  "name": "User added products to shopping bag",
+  "keyword": "Given ",
+  "line": 8
+});
+formatter.step({
+  "name": "User is in shopping bag page",
+  "keyword": "And ",
+  "line": 9
+});
+formatter.step({
+  "name": "User click continue checkout button",
+  "keyword": "When ",
+  "line": 10
+});
+formatter.step({
+  "name": "Sign in page should load",
+  "keyword": "Then ",
+  "line": 11
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.addProductsToShoppingBag()"
+});
+formatter.result({
+  "duration": 27001185000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.userInShoppingBag()"
+});
+formatter.result({
+  "duration": 36000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.continueToCheckout()"
+});
+formatter.result({
+  "duration": 3004287000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.userInSignInPage()"
+});
+formatter.result({
+  "duration": 26000,
   "status": "passed"
 });
 formatter.scenario({
-  "id": "search;department-search;;3",
+  "id": "checkout;checkout-as-registered-user",
   "description": "",
-  "name": "Department Search",
-  "keyword": "Scenario Outline",
-  "line": 21,
+  "name": "Checkout as Registered User",
+  "keyword": "Scenario",
+  "line": 34,
   "type": "scenario"
 });
 formatter.step({
-  "name": "User is on home page",
-  "keyword": "Given ",
-  "line": 12
-});
-formatter.step({
-  "name": "Select a \"DVDs\" to search",
-  "keyword": "And ",
-  "line": 13,
-  "matchedColumns": [
-    0
-  ]
-});
-formatter.step({
-  "name": "Enter \"The Blind Side\" in search box field",
+  "name": "User entered",
   "keyword": "When ",
-  "line": 14,
-  "matchedColumns": [
-    1
+  "line": 36,
+  "rows": [
+    {
+      "cells": [
+        "Key",
+        "value"
+      ],
+      "line": 37
+    },
+    {
+      "cells": [
+        "userflag",
+        "Registered"
+      ],
+      "line": 38
+    },
+    {
+      "cells": [
+        "username",
+        "testautomationdemo@gmail.com"
+      ],
+      "line": 39
+    },
+    {
+      "cells": [
+        "password",
+        "automation"
+      ],
+      "line": 40
+    }
   ]
 });
 formatter.step({
-  "name": "Click Go button",
+  "name": "Click on SignIn button",
   "keyword": "And ",
-  "line": 15
+  "line": 41
 });
 formatter.step({
-  "name": "Page loads with results for search keyword",
+  "name": "Checkout page should be displayed",
   "keyword": "Then ",
-  "line": 16
+  "line": 42
 });
-formatter.match({
-  "location": "SearchStepDefinitions.prepareHomePage1()"
-});
-formatter.result({
-  "duration": 4405570000,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
+formatter.step({
+  "name": "User entered mandatory Shipping Details",
+  "keyword": "Given ",
+  "line": 43,
+  "rows": [
     {
-      "val": "DVDs",
-      "offset": 10
-    }
-  ],
-  "location": "SearchStepDefinitions.Department_Selection(String)"
-});
-formatter.result({
-  "duration": 1463643000,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
+      "cells": [
+        "Key",
+        "value"
+      ],
+      "line": 44
+    },
     {
-      "val": "The Blind Side",
-      "offset": 7
+      "cells": [
+        "firstname",
+        "Xavier"
+      ],
+      "line": 45
+    },
+    {
+      "cells": [
+        "lastname",
+        "Zion"
+      ],
+      "line": 46
+    },
+    {
+      "cells": [
+        "address",
+        "600 Alexander Rd Ste 9"
+      ],
+      "line": 47
+    },
+    {
+      "cells": [
+        "city",
+        "Princeton"
+      ],
+      "line": 48
+    },
+    {
+      "cells": [
+        "state",
+        "New Jersey"
+      ],
+      "line": 49
+    },
+    {
+      "cells": [
+        "zip",
+        "08540"
+      ],
+      "line": 50
+    },
+    {
+      "cells": [
+        "country",
+        "United States"
+      ],
+      "line": 51
+    },
+    {
+      "cells": [
+        "phonenumber",
+        "(609) 662 4040"
+      ],
+      "line": 52
     }
-  ],
-  "location": "SearchStepDefinitions.search1(String)"
+  ]
+});
+formatter.step({
+  "name": "Check limited changes options should load",
+  "keyword": "Then ",
+  "line": 53
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.User_entered(CheckoutStepDefinitions$DataItem\u003e)"
 });
 formatter.result({
-  "duration": 8424376000,
+  "duration": 1063000,
   "status": "passed"
 });
 formatter.match({
-  "location": "SearchStepDefinitions.Click_Go_button()"
+  "location": "CheckoutStepDefinitions.SignIn()"
 });
 formatter.result({
-  "duration": 22000,
+  "duration": 587815000,
   "status": "passed"
 });
 formatter.match({
-  "location": "SearchStepDefinitions.assertTheSearchResult1()"
+  "location": "CheckoutStepDefinitions.userInCheckoutPage()"
 });
 formatter.result({
-  "duration": 346222000,
+  "duration": 34000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.User_entered_mandatory_Shipping_Details(CheckoutStepDefinitions$DataItem\u003e)"
+});
+formatter.result({
+  "duration": 10301067000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CheckoutStepDefinitions.Check_limited_changes_options_should_load()"
+});
+formatter.result({
+  "duration": 2792296000,
   "status": "passed"
 });
 });

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="56.98" errors="0" skipped="0" tests="17" name="com.softcrylic.test.automation.SeqExec">
+<testsuite failures="0" time="218.099" errors="2" skipped="2" tests="39" name="com.softcrylic.test.automation.SeqExec">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -36,6 +36,7 @@
     <property name="os.version" value="10.6.8"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/sundarsritharan"/>
+    <property name="tags" value="@search,@checkout"/>
     <property name="user.timezone" value="America/New_York"/>
     <property name="java.awt.printerjob" value="apple.awt.CPrinterJob"/>
     <property name="java.specification.version" value="1.6"/>
@@ -45,7 +46,7 @@
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Dtags=@search,@checkout"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="apple.awt.CToolkit"/>
@@ -64,21 +65,188 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0" classname="Given User is on home page   " name="Given User is on home page   "/>
-  <testcase time="0" classname="When Enter \&quot;Acceptance Testing\&quot; in search box field    " name="When Enter \&quot;Acceptance Testing\&quot; in search box field    "/>
-  <testcase time="0" classname="And Click Go button     " name="And Click Go button     "/>
-  <testcase time="0" classname="Then Page loads with results for search keyword      " name="Then Page loads with results for search keyword      "/>
-  <testcase time="0.257" classname="Scenario: Basic Search  " name="Scenario: Basic Search  "/>
-  <testcase time="0" classname="Given User is on home page          " name="Given User is on home page          "/>
-  <testcase time="0" classname="And Select a \&quot;Books\&quot; to search           " name="And Select a \&quot;Books\&quot; to search           "/>
-  <testcase time="0" classname="When Enter \&quot;Agile\&quot; in search box field            " name="When Enter \&quot;Agile\&quot; in search box field            "/>
-  <testcase time="0.008" classname="And Click Go button             " name="And Click Go button             "/>
-  <testcase time="0" classname="Then Page loads with results for search keyword              " name="Then Page loads with results for search keyword              "/>
-  <testcase time="0.189" classname="| \&quot;Books\&quot; | \&quot;Agile\&quot; |         " name="| \&quot;Books\&quot; | \&quot;Agile\&quot; |         "/>
-  <testcase time="0" classname="Given User is on home page                " name="Given User is on home page                "/>
-  <testcase time="0" classname="And Select a \&quot;DVDs\&quot; to search                 " name="And Select a \&quot;DVDs\&quot; to search                 "/>
-  <testcase time="0" classname="When Enter \&quot;The Blind Side\&quot; in search box field                  " name="When Enter \&quot;The Blind Side\&quot; in search box field                  "/>
-  <testcase time="0" classname="And Click Go button                   " name="And Click Go button                   "/>
-  <testcase time="0" classname="Then Page loads with results for search keyword                    " name="Then Page loads with results for search keyword                    "/>
-  <testcase time="0.383" classname="| \&quot;DVDs\&quot; | \&quot;The Blind Side\&quot; |               " name="| \&quot;DVDs\&quot; | \&quot;The Blind Side\&quot; |               "/>
+  <testcase time="0.025" classname="Given User added products to shopping bag   " name="Given User added products to shopping bag   "/>
+  <testcase time="0" classname="And User is in shopping bag page    " name="And User is in shopping bag page    "/>
+  <testcase time="0" classname="When User click continue checkout button     " name="When User click continue checkout button     "/>
+  <testcase time="0" classname="Then Sign in page should load      " name="Then Sign in page should load      "/>
+  <testcase time="0.001" classname="When User entered email \&quot;ssta123@gmail.com\&quot;       " name="When User entered email \&quot;ssta123@gmail.com\&quot;       "/>
+  <testcase time="0" classname="And Click Begin Checkout        " name="And Click Begin Checkout        "/>
+  <testcase time="0" classname="Then Checkout page should be displayed         " name="Then Checkout page should be displayed         "/>
+  <testcase time="0" classname="Given User entered mandatory Shipping Details          " name="Given User entered mandatory Shipping Details          "/>
+  <testcase time="0" classname="And Select Pay By Phone and Use my shipping address as my billing address options           " name="And Select Pay By Phone and Use my shipping address as my billing address options           "/>
+  <testcase time="0" classname="And Continue checkout without entering an account            " name="And Continue checkout without entering an account            "/>
+  <testcase time="0" classname="Then Check limited changes options should load             " name="Then Check limited changes options should load             "/>
+  <testcase time="0.386" classname="Scenario: Checkout as Guest User  " name="Scenario: Checkout as Guest User  "/>
+  <testcase time="0" classname="Given User added products to shopping bag               " name="Given User added products to shopping bag               "/>
+  <testcase time="0" classname="And User is in shopping bag page                " name="And User is in shopping bag page                "/>
+  <testcase time="0" classname="When User click continue checkout button                 " name="When User click continue checkout button                 "/>
+  <testcase time="0" classname="Then Sign in page should load                  " name="Then Sign in page should load                  "/>
+  <testcase time="0" classname="When User entered                   " name="When User entered                   "/>
+  <testcase time="0" classname="And Click on SignIn button                    " name="And Click on SignIn button                    "/>
+  <testcase time="0" classname="Then Checkout page should be displayed                     " name="Then Checkout page should be displayed                     "/>
+  <testcase time="0.001" classname="Given User entered mandatory Shipping Details                      " name="Given User entered mandatory Shipping Details                      "/>
+  <testcase time="0" classname="Then Check limited changes options should load                       " name="Then Check limited changes options should load                       "/>
+  <testcase time="0.439" classname="Scenario: Checkout as Registered User              " name="Scenario: Checkout as Registered User              "/>
+  <testcase time="0" classname="Given User is in home page                          " name="Given User is in home page                          "/>
+  <testcase time="0" classname="When Enter \&quot;Acceptance Testing\&quot; in search field                           " name="When Enter \&quot;Acceptance Testing\&quot; in search field                           "/>
+  <testcase time="0" classname="And Click Search                            " name="And Click Search                            "/>
+  <testcase time="0.001" classname="Then Search results for entered keyword is displayed                             " name="Then Search results for entered keyword is displayed                             "/>
+  <testcase time="0.373" classname="Scenario: Basic Search                         " name="Scenario: Basic Search                         "/>
+  <testcase time="0" classname="Given User is in home page                                 " name="Given User is in home page                                 "/>
+  <testcase time="0" classname="And Select a \&quot;Books\&quot; to search                                  " name="And Select a \&quot;Books\&quot; to search                                  "/>
+  <testcase time="0" classname="When Enter \&quot;Agile\&quot; in search field                                   " name="When Enter \&quot;Agile\&quot; in search field                                   "/>
+  <testcase time="0" classname="And Click Search                                    " name="And Click Search                                    "/>
+  <testcase time="0" classname="Then Search results for entered keyword is displayed                                     " name="Then Search results for entered keyword is displayed                                     "/>
+  <testcase time="0.382" classname="| \&quot;Books\&quot; | \&quot;Agile\&quot; |                                " name="| \&quot;Books\&quot; | \&quot;Agile\&quot; |                                "/>
+  <testcase time="0" classname="Given User is in home page                                       " name="Given User is in home page                                       "/>
+  <testcase time="0" classname="And Select a \&quot;DVDs\&quot; to search                                        " name="And Select a \&quot;DVDs\&quot; to search                                        "/>
+  <testcase time="0.007" classname="When Enter \&quot;The Blind Side\&quot; in search field                                         " name="When Enter \&quot;The Blind Side\&quot; in search field                                         ">
+    <error message="Can&apos;t invoke com.softcrylic.test.automation.step_definations.SearchStepDefinitions.search1(String) in file:/Users/sundarsritharan/git/bdd_seq/target/test-classes/" type="cucumber.runtime.CucumberException">cucumber.runtime.CucumberException: Can&apos;t invoke com.softcrylic.test.automation.step_definations.SearchStepDefinitions.search1(String) in file:/Users/sundarsritharan/git/bdd_seq/target/test-classes/
+	at cucumber.runtime.Utils.invoke(Utils.java:38)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:30)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:45)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:248)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:36)
+	at cucumber.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:76)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:24)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:24)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:65)
+	at cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:20)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at cucumber.junit.FeatureRunner.run(FeatureRunner.java:72)
+	at cucumber.junit.Cucumber.runChild(Cucumber.java:76)
+	at cucumber.junit.Cucumber.runChild(Cucumber.java:36)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at cucumber.junit.Cucumber.run(Cucumber.java:81)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:234)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:133)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:188)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:166)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:101)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+Caused by: junit.framework.AssertionFailedError
+	at junit.framework.Assert.fail(Assert.java:48)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at junit.framework.Assert.assertTrue(Assert.java:27)
+	at com.softcrylic.test.automation.pages.HomePage.Search(HomePage.java:48)
+	at com.softcrylic.test.automation.step_definations.SearchStepDefinitions.search1(SearchStepDefinitions.java:70)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	... 53 more
+</error>
+    <system-out>&amp;#27;[1A    &amp;#27;[32mAnd &amp;#27;[0m&amp;#27;[32mSelect a &quot;&amp;#27;[0m&amp;#27;[32m&amp;#27;[1mDVDs&amp;#27;[0m&amp;#27;[32m&quot; to search&amp;#27;[0m                        &amp;#27;[90m# SearchStepDefinitions.Department_Selection(String)&amp;#27;[0m
+    &amp;#27;[90mWhen &amp;#27;[0m&amp;#27;[90mEnter &quot;&amp;#27;[0m&amp;#27;[90m&amp;#27;[1mThe Blind Side&amp;#27;[0m&amp;#27;[90m&quot; in search field&amp;#27;[0m          &amp;#27;[90m# SearchStepDefinitions.search1(String)&amp;#27;[0m
+</system-out>
+  </testcase>
+  <testcase time="0.007" classname="| \&quot;DVDs\&quot; | \&quot;The Blind Side\&quot; |                                      " name="| \&quot;DVDs\&quot; | \&quot;The Blind Side\&quot; |                                      ">
+    <error message="Can&apos;t invoke com.softcrylic.test.automation.step_definations.SearchStepDefinitions.search1(String) in file:/Users/sundarsritharan/git/bdd_seq/target/test-classes/" type="cucumber.runtime.CucumberException">cucumber.runtime.CucumberException: Can&apos;t invoke com.softcrylic.test.automation.step_definations.SearchStepDefinitions.search1(String) in file:/Users/sundarsritharan/git/bdd_seq/target/test-classes/
+	at cucumber.runtime.Utils.invoke(Utils.java:38)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:30)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:45)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:248)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:36)
+	at cucumber.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:76)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:24)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:24)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:65)
+	at cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:20)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at cucumber.junit.FeatureRunner.run(FeatureRunner.java:72)
+	at cucumber.junit.Cucumber.runChild(Cucumber.java:76)
+	at cucumber.junit.Cucumber.runChild(Cucumber.java:36)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at cucumber.junit.Cucumber.run(Cucumber.java:81)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:234)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:133)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:188)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:166)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:101)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+Caused by: junit.framework.AssertionFailedError
+	at junit.framework.Assert.fail(Assert.java:48)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at junit.framework.Assert.assertTrue(Assert.java:27)
+	at com.softcrylic.test.automation.pages.HomePage.Search(HomePage.java:48)
+	at com.softcrylic.test.automation.step_definations.SearchStepDefinitions.search1(SearchStepDefinitions.java:70)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	... 53 more
+</error>
+  </testcase>
+  <testcase time="0.039" classname="And Click Search                                          " name="And Click Search                                          ">
+    <skipped/>
+  </testcase>
+  <testcase time="0.043" classname="Then Search results for entered keyword is displayed                                           " name="Then Search results for entered keyword is displayed                                           ">
+    <skipped/>
+  </testcase>
 </testsuite>
