@@ -4,13 +4,14 @@ In order to Place Orders
 As Guest and Registered User
 I want Checkout Feature
 
-
-Scenario: Checkout as Guest User
-
+Background:
 	Given User added products to shopping bag
 	And User is in shopping bag page
 	When User click continue checkout button
 	Then Sign in page should load
+	
+Scenario: Checkout as Guest User
+
 	When User entered email "ssta123@gmail.com"
 	And Click Begin Checkout
 	Then Checkout page should be displayed
@@ -31,11 +32,7 @@ Scenario: Checkout as Guest User
 	Then Check limited changes options should load
 		
 Scenario: Checkout as Registered User
-
-	Given User added products to shopping bag
-	And User is in shopping bag page
-	When User click continue checkout button 
-	Then Sign in page should load
+	
 	When User entered
 	|	Key	|	value	|
 	|	userflag	|	Registered	|
@@ -54,3 +51,5 @@ Scenario: Checkout as Registered User
 	|	country	|	United States	|
 	|	phonenumber	|	(609) 662 4040	|
 	Then Check limited changes options should load
+	
+
