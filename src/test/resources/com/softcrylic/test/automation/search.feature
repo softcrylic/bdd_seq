@@ -1,3 +1,4 @@
+@search
 Feature: Search
 In order to Find Right Products
 As a Guest User
@@ -11,7 +12,7 @@ Scenario: Basic Search
     And Click Search  
     Then Search results for entered keyword is displayed
 
-@search  
+ 
 Scenario Outline: Department Search
 
     Given User is in home page
